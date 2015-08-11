@@ -1,0 +1,66 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#include "stdlib.h"
+
+using namespace std;
+
+void main()
+{float Area,base,altura,promedio,a,b,x,y,z;
+ int op;
+     do{cout<<"----------MENU----------"<<endl;
+		cout<<"1.Calcular el Area de un rectangulo"<<endl;
+		cout<<"2.Calcular el promedio de dos numeros"<<endl;
+		cout<<"3.El mayor de tres numeros"<<endl;
+		cout<<"0.Salir"<<endl;
+		cout<<"Ingrese la opcion deseada:";
+		cin>>op;
+		switch(op)
+	   {case 1: cout<<"Ingrese el valor de la base:";
+				cin>>base;
+				cout<<"Ingrese el valor de la altura:";
+				cin>>altura;
+				Area = base*altura ;
+				cout<<"El area de rectangulo es:"<<Area;
+				break;
+		case 2: cout<<"Ingrese el primer numero:";
+				cin>>a;
+				cout<<"Ingrese el segundo numero:";
+				cin>>b;
+				promedio = (a+b)/2;
+				cout<<"El promedio de los numeros es:"<<promedio;
+				break;
+		case 3: cout<<"Ingrese el valor del primer numero:";
+				cin>>x;
+				cout<<"Ingrese el valor del segundo numero:";
+				cin>>y;
+				cout<<"Ingrese el valor del tercer numero:";
+				cin>>z;
+				if(x>y)
+				{
+				if(x>z)
+				  {cout<<"El mayor es:"<<x;}
+				else
+				  {cout<<"El mayor es:"<<z;}
+				}
+				else
+				{
+				if(y>z)
+				  {cout<<"El mayor es:"<<y;}
+				else
+				  {cout<<"El mayor es:"<<z;}
+				}
+				break;
+		case 0: cout<<"Adios";
+				break;
+		default:cout<<"Error";
+				break;
+		}
+	 getch();
+	 system("cls");
+	 }
+	 while(op!=0);
+	 getch();
+	 system("cls");
+}
