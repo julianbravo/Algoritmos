@@ -1,0 +1,76 @@
+// Menu solociones reales.cpp : Defines the entry point for the console application.
+// Autor: Julian Bravo
+// Fecha: 25 de Agosto del 2015
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#include "stdlib.h"
+#define PI 3.141516
+
+using namespace std;
+
+float area_circ(float r);
+void ecuacion_cuad(float a,float b,float c,float &x1,float &x2);
+
+void main()
+{float area,radio,a,b,c,x1,x2;
+int op;
+do{ cout<<"-------------MENU-------------"<<endl;
+    cout<<"1.Calcular el Area de la Circunferencia"<<endl;
+    cout<<"2.Calcular soluciones reales de la ecuacion cuadratica"<<endl;
+    cout<<"0.Salir"<<endl;
+    cout<<"Ingrese la opcion deseada:";
+    cin>>op;
+    switch(op)
+    {case 1:cout<<"Ingrese el radio del circulo:";
+            cin>>radio;
+            area=area_circ(radio);
+            cout<<"El area de la circunferencia es:"<<area;
+            break;
+     case 2:cout<<"Ingrese el valor de a:";
+            cin>>a;
+            cout<<"Ingrese el valor de b:";
+            cin>>b;
+            cout<<"Ingrese el valor de c:";
+            cin>>c;
+			if(b*b-4*a*c > 0)
+            {
+            ecuacion_cuad(a,b,c,x1,x2);
+            cout<<"el resultado de x1 es igual a: "<<x1<<endl;
+            cout<<"el resultado de x2 es igual a: "<<x2<<endl;
+            }
+            if(b*b-4*a*c < 0)
+            {
+            cout<<"No existe un valor real";
+            }
+            if(b*b-4*a*c == 0)
+            {
+            x1 = -b/(2*a);
+            cout<<"la solucion unica es x: "<<x1;
+            }
+            break;
+     case 0:cout<<"Adios";
+            break;
+     default:cout<<"Error";
+            break;
+    }
+    getch();
+    system("cls");
+  }while(op!=0);
+}
+
+float area_circ(float r)
+{float a;
+a= PI*r*r;
+return a;
+}
+
+void ecuacion_cuad(float a,float b,float c,float &x1,float &x2)
+{
+if((b*b - 4*a*c) > 0)
+{ x1= (-b + sqrt(b*b-4*a*c))/(2*a);
+  x2= (-b - sqrt(b*b-4*a*c))/(2*a);
+}
+} 
